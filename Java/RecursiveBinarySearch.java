@@ -7,13 +7,13 @@ Recursive Binary Search
  *
  * @author krithika
  */
-public class BinarySearch {
+public class RecursiveBinarySearch {
 
     /* Recursive Method implementing Binary Search algorithm 
        * Returns -1 if element not found
        * Returns index of element in inputArray if element is found
      */
-    public int binarysearch(int[] inputArray, int start, int end, int element) {
+    public int recursiveBinarySearch(int[] inputArray, int start, int end, int element) {
 
         if (end >= start) {
             int mid = (start + end) / 2;
@@ -22,10 +22,10 @@ public class BinarySearch {
                 return mid;
             } else if (element > inputArray[mid]) {
                 //If element is greater than the integer in the middle then restrict search to right subarray
-                return binarysearch(inputArray, mid + 1, end, element);
+                return recursiveBinarySearch(inputArray, mid + 1, end, element);
             }
             //If element is less than the integer in the middle then restrict search to left subarray
-            return binarysearch(inputArray, start, mid - 1, element);
+            return recursiveBinarySearch(inputArray, start, mid - 1, element);
         }
 
         return -1;
@@ -39,11 +39,11 @@ public class BinarySearch {
         // Element to be found
         int element = 41;
 
-        //Creating object to access non-static method binary search
-        BinarySearch binsearch = new BinarySearch();
+        //Creating object to access non-static method recursiveBinarySearch
+        RecursiveBinarySearch binsearch = new RecursiveBinarySearch();
 
         //Calling binary search method
-        int output = binsearch.binarysearch(inputArray, 0, inputArray.length - 1, element);
+        int output = binsearch.recursiveBinarySearch(inputArray, 0, inputArray.length - 1, element);
 
         //Printing output
         if (output == -1) {
